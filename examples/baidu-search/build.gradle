@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.5'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'org.testcontainers.examples'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Testcontainers dependencies
+    implementation 'org.testcontainers:testcontainers:1.17.6'
+    implementation 'org.testcontainers:selenium:1.17.6'
+    
+    // Selenium WebDriver
+    implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
+    
+    // JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
+    
+    // AssertJ for assertions
+    testImplementation 'org.assertj:assertj-core:3.23.1'
+    
+    // Spring Boot Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+}
